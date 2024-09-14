@@ -75,7 +75,7 @@ public class PasswordApp {
 	 * Test the input and, if valid, build the output
 	 */
 	private static void builder() {
-		// TASK 1: GET INPUT
+		// TASK 1: GET INPUT AND INITIALIZE VARIABLES
 		String input, output;
 		input = textFieldInput.getText();
 		output = "";
@@ -84,7 +84,7 @@ public class PasswordApp {
 		longest = 1;
 		System.out.println(input);
 		
-		// TASK 2: VALIDATE INPUT
+		// TASK 2: CHECK VALIDITY
 		if (input.length()<8 || input.length()>12 || input.contains(" ")) {
 			output = (input.contains(" ") ? "The password MUST NOT contain spaces." : 
 											"The password MUST be 8-12 characters.");

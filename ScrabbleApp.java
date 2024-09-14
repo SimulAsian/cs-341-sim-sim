@@ -89,7 +89,7 @@ public class ScrabbleApp {
 		
 		textFieldInput.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				triggerBuilder();
+				builder();
 			}
 		});
 	}
@@ -97,7 +97,7 @@ public class ScrabbleApp {
 	/**
 	 * Test the input and, if valid, build the output
 	 */
-	private void triggerBuilder() {
+	private void builder() {
 		// TASK 1: GET INPUT VALUE - ADD MARGIN FOR ANY WHITESPACE CHARACTERS
 		String input = textFieldInput.getText().replaceAll("\\s", "");
 		String output = "";
