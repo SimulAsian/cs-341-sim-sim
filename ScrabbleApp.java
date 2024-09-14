@@ -101,27 +101,28 @@ public class ScrabbleApp {
 		// TASK 1: GET INPUT VALUE - ADD MARGIN FOR ANY WHITESPACE CHARACTERS
 		String input = textFieldInput.getText().replaceAll("\\s", "");
 		String output = "";
+		String warning = "";
 		String[] allCombos;
 		boolean valid = true;
 		
 		// TASK 2: VALIDATE INPUT - BASED ON LENGTH AND CHARACTER VALIDITY
 		
-		if(input.length()>7) {
+		if (input.length()>7) {
 			valid = false;
-			textAreaWarning.setText("Please enter 7 characters or less.");
+			warning = "Please enter 7 characters or less.";
 		}
 		
-		if(valid) {
+		if (valid) {
 			for (int i = 0; i < input.length(); i++) {
 	            if (!(input.charAt(i) >= 'A' && input.charAt(i) <= 'Z') && !(input.charAt(i) >= 'a' && input.charAt(i) <= 'z')) {
 	                valid = false;
-	                textAreaWarning.setText("Please enter letters only.");
+	                warning = "Please enter letters only.";
 	            }
 	        }
 		}
 		
 		// TASK 3: BUILD OUTPUT
-		if(valid) {
+		if (valid) {
 			textAreaWarning.setText("");
 			Set<String> uniquePerms = new HashSet<>();
 			recursiveBuilder(input, "", uniquePerms);
@@ -129,19 +130,20 @@ public class ScrabbleApp {
 			allCombos = new String[uniquePerms.size()];
 			int i = 0;
 			
-			for(String perm : uniquePerms) {
+			for (String perm : uniquePerms) {
 	            allCombos[i] = perm;
 	            i++;
 	        }
 			
 			Arrays.sort(allCombos);
 			
-			for(String s : allCombos) {
+			for (String s : allCombos) {
 				output += s + "\n";
 			}
 		}
 	
 		// TASK 4: DISPLAY OUTPUT
+		textAreaWarning.setText(warning);
 		textAreaPerms.setText(output);
 	}
 	
@@ -152,10 +154,10 @@ public class ScrabbleApp {
 	 * @param uniquePerms
 	 */
 	private static void recursiveBuilder(String s, String prefix, Set<String> uniquePerms) {
-		if(s.length()==0) {
+		if (s.length()==0) {
 			uniquePerms.add(prefix);
 		}else {
-			for(int i = 0; i < s.length(); i++) {
+			for (int i = 0; i < s.length(); i++) {
 				String remnant = s.substring(0, i) + s.substring(i + 1);
 				recursiveBuilder(remnant, prefix + s.charAt(i), uniquePerms);
 			}
