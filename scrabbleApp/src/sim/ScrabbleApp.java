@@ -102,7 +102,7 @@ public class ScrabbleApp {
 		String input = textFieldInput.getText().replaceAll("\\s", "");
 		String output = "";
 		String warning = "";
-		String[] allCombos;
+		String[] allCombos; //change
 		boolean valid = true;
 		
 		// TASK 2: VALIDATE INPUT - BASED ON LENGTH AND CHARACTER VALIDITY

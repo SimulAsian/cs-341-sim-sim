@@ -52,7 +52,7 @@ public class Stack {
 	}
 	
 	public String toString() {
-		String output = "";
+		String output = ""; //
 		
 		for (int i = 0; i < size; i++) {
 			output += elements[i];
