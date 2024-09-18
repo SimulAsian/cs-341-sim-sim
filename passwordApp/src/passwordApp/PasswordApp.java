@@ -1,4 +1,4 @@
-package passwordApp;
+package passwordApp; //
 
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
