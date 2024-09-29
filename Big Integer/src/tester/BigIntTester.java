@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import sim.BigInteger;
 
-public class BigIntegerTester {
+public class BigIntTester {
 	/**
 	 * @Test Adding two BigIntegers together
 	 */
