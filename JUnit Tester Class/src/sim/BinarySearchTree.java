@@ -1,12 +1,17 @@
 package sim;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 // Test 1: Verify a new BinarySearchTree object is empty
 // Test 2: Add four nodes and verify
 // Test 3: Add duplicate nodes and verify they are not added
 // Test 4: Verify on a larger scale. Add 50 random nodes (potential duplicates)
+// Hit the child - indicative of child abuse
+// Use the child - indicative of child labor or abuse
+// Visit the child - not implicative of anything... except, at most, like a divorce, death or juvenile detention
+// Stack, Stack using array, what congregate memory is and that an array is one, eliminate leaks, construct a BST and a JUnit Test, how to add a node
 
 public class BinarySearchTree {
 	private Node root; //pointer to a node
@@ -72,5 +77,27 @@ public class BinarySearchTree {
 		inOrderRecursive(ptr.left, list);
 		list.add(ptr.value);
 		inOrderRecursive(ptr.right, list);
+	}
+	
+	public void inOrderBalancedTreeRecursiveBuild(List <Integer> list) {
+		if (list == null || list.isEmpty()) {
+            return;
+        }
+		
+		Collections.sort(list);
+		
+		root = recursiveBuilder(list, 0, list.size() - 1);
+	}
+	
+	private Node recursiveBuilder(List<Integer> list, int start, int end) {
+		if (start > end) {
+            return null;
+        }
+		int mid = start + (end - start) / 2;
+        Node node = new Node((Integer) list.get(mid));
+        node.left = recursiveBuilder(list, start, mid - 1);
+        node.right = recursiveBuilder(list, mid + 1, end);
+
+		return node;
 	}
 }

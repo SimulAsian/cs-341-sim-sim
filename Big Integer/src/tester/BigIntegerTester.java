@@ -8,19 +8,16 @@ import org.junit.jupiter.api.Test;
 import sim.BigInteger;
 
 public class BigIntegerTester {
-	/**
-	 * @Test Adding two BigIntegers together
-	 */
+
+	@Test
 	public void testBigIntegerAddition() {
 	    BigInteger num1 = new BigInteger("12345678901234567890");
 	    BigInteger num2 = new BigInteger("98765432109876543210");
 	    BigInteger expectedResult = new BigInteger("111111111011111111100");
-	    assertEquals(expectedResult, num1.add(num2));
+	    assertEquals(expectedResult.toString(), num1.add(num2).toString());
 	}
 	
-	/**
-	 * @Test Running mod on a BigInteger
-	 */
+	@Test
 	public void testBigIntegerMod() {
 		BigInteger num1 = new BigInteger("91823787456814981273");
 		int forMod = 25;
@@ -28,10 +25,7 @@ public class BigIntegerTester {
 		assertEquals(expectedResult, num1.mod(forMod));
 	}
 	
-	
-	/**
-	 * @Test Test sending invalid value to BigInteger's
-	 */
+	@Test
 	public void testBigIntegerInvalidCreation() {
 		BigInteger num1 = new BigInteger("-4325623423543523");
 		
@@ -40,9 +34,7 @@ public class BigIntegerTester {
 		});
 	}
 	
-	/**
-	 * @Test Test sending invalid value to BigInteger's
-	 */
+	@Test
 	public void testBigIntegerInvalidAdd() {
 		BigInteger num1 = new BigInteger("-4325623423543523");
 		BigInteger num2 = new BigInteger("98765432109876543210");
@@ -52,9 +44,7 @@ public class BigIntegerTester {
 		});
 	}
 	
-	/**
-	 * @Test Test sending invalid value to BigInteger's
-	 */
+	@Test
 	public void testBigIntegerInvalidMod() {
 		BigInteger num1 = new BigInteger("98765432109876543210");
 	    

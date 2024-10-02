@@ -35,7 +35,7 @@ public class BigInteger {
 	 */
 	public BigInteger add(BigInteger y) {
 		if((!isPositiveInt(value)) || !isPositiveInt(y.toString())) {
-			throw new IllegalArgumentException("One of the provided BigIntegers is an invalid BigInteger");
+			throw new IllegalArgumentException();
 		}
 		
         // Assign larger and smaller number vars
@@ -71,7 +71,7 @@ public class BigInteger {
         if (carry > 0) {
             z = carry + z;
         }
-        
+        System.out.println(z);
         return new BigInteger(z);
     }
 	
