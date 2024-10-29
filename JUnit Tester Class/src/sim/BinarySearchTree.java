@@ -10,7 +10,7 @@ import java.util.List;
 // Test 4: Verify on a larger scale. Add 50 random nodes (potential duplicates)
 // Hit the child - indicative of child abuse
 // Use the child - indicative of child labor or abuse
-// Visit the child - not implicative of anything... except, at most, like a divorce, death or juvenile detention
+// Visit the child - not implicative of anything bad... except, at most, like a divorce, sickness, death or juvenile detention
 // Stack, Stack using array, what congregate memory is and that an array is one, eliminate leaks, construct a BST and a JUnit Test, how to add a node
 
 public class BinarySearchTree {

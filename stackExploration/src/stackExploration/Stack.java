@@ -25,18 +25,10 @@ public class Stack {
 	}
 	
 	public void push(Object o) {
-		if (elements.length == size) {
-			elements = Arrays.copyOf(elements, 2*size);
-//			Object[] arr = elements.clone();
-//			elements = new Object[size*2];
-//			for (int i = 0; i < size; i++) {
-//				elements[i] = arr[i];
-//			}
-		}
+		if (elements.length == size) elements = Arrays.copyOf(elements, 2*size);
 		
 		//will provide size then increment :O
 		elements[size++] = o;
-		
 	}
 	
 	public Object pop() {
@@ -52,6 +44,7 @@ public class Stack {
 	}
 	
 	public String toString() {
+//		String output = Arrays.toString(elements);
 		String output = ""; //
 		
 		for (int i = 0; i < size; i++) {

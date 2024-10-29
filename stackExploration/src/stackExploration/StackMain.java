@@ -71,7 +71,7 @@ public class StackMain {
 		while (!myStack.isEmpty()) {
 			myStack.pop();
 		}
-		System.out.println("Test 6: EMPTY STACK" + myStack + " " + myStack.isEmpty());
+		System.out.println("Test 6: Empty stack? " + myStack + " " + myStack.isEmpty());
 		
 		// TEST 7: TEST THE EXCEPTION OF POPPING AN EMPTY STACK
 		System.out.println("Test 7: Pop an empty stack check for exceptions");
