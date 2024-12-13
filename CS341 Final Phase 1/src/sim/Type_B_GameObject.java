@@ -9,6 +9,7 @@ public class Type_B_GameObject extends GameObject{
   public Type_B_GameObject(int x, int y) {
     super(x, y);
     setDirection(Direction.DOWN);
+    setVelocity(5);
     
     imageList = new LinkedList<Icon>();
     imageList.add(new ImageIcon("images/Type_B_Up.png"));
@@ -20,48 +21,46 @@ public class Type_B_GameObject extends GameObject{
 
   public void move(Canvas c) {
 	    Icon icon = getCurrentImage();
+	    int iconHeight = icon.getIconHeight();
+	    int iconWidth = icon.getIconWidth();
+	    int canvasHeight = (int) c.getSize().getHeight();
+	    int canvasWidth = (int) c.getSize().getWidth();
 
-	    int  iconHeight   = icon.getIconHeight();
-	    int  iconWidth    = icon.getIconWidth();
-	    int  canvasHeight = (int)c.getSize().getHeight();
-	    int  canvasWidth  = (int)c.getSize().getWidth();
-	    
-	    //MOVE RED GAME OBJECT
 	    switch (getDirection()) {
-	      case Direction.UP:
-	        setY(getY() - getVelocity());
-	        if (getY() < 0) {
-	          setY(0);
-	          setDirection(Direction.RIGHT);
-	        }
-	        break;
-	      case Direction.DOWN:
-	        setY(getY() + getVelocity());
-	        if (getY() + iconHeight > canvasHeight) {
-	          setY((int)(canvasHeight - iconHeight));
-	          setDirection(Direction.LEFT);
-	        }
-	        break;
-	      case Direction.LEFT:
-	        setX(getX() - getVelocity());
-	        if (getX() < 0) {
-	          setX(0);
-	          setDirection(Direction.UP);
-	        }
-	        break;
-	      case Direction.RIGHT:
-	    	  setX(getX() + getVelocity());
-	          if (getX() + iconWidth > canvasWidth) {
-	            setX((int)(canvasWidth - iconWidth));
-	            setDirection(Direction.DOWN);
-	        }
-	        break;
-		default:
-			break;
+	        case Direction.UP:
+	            setY(getY() - getVelocity());
+	            if (getY() < 0) {
+	                setY(0);
+	                setDirection(Direction.RIGHT);
+	            }
+	            break;
+	        case Direction.DOWN:
+	            setY(getY() + getVelocity());
+	            if (getY() + iconHeight > canvasHeight) {
+	                setY(canvasHeight - iconHeight);
+	                setDirection(Direction.LEFT);
+	            }
+	            break;
+	        case Direction.LEFT:
+	            setX(getX() - getVelocity());
+	            if (getX() < 0) {
+	                setX(0);
+	                setDirection(Direction.UP);
+	            }
+	            break;
+	        case Direction.RIGHT:
+	            setX(getX() + getVelocity());
+	            if (getX() + iconWidth > canvasWidth) {
+	                setX(canvasWidth - iconWidth);
+	                setDirection(Direction.DOWN);
+	            }
+	            break;
+	        default:
+	            break;
 	    }
-	    
+
 	    setImage();
-  }
+	}
 
   //SPECIFY THE IMAGE TO DISPLAY
   //   USED FOR ANIMATION
@@ -82,4 +81,3 @@ public class Type_B_GameObject extends GameObject{
 	    }
 	 }
 }
-

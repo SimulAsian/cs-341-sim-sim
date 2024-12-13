@@ -21,7 +21,7 @@ public abstract class GameObject {
 	public GameObject(int x, int y) {
 		this.x = x;
 		this.y = y;
-		velocity = 2;
+		velocity = 0;
 		currentImage = 0;
 	}
 

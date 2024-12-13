@@ -61,6 +61,13 @@ public class Canvas extends JComponent implements ActionListener, KeyListener {
 		for (int i = 0; i < gameObjectList.size(); i++) {
 			GameObject obj = gameObjectList.get(i);
 			obj.draw(this, g);
+			
+			if (i == highlighted) {
+	            g.setColor(Color.RED); // Set the color for the outline
+	            g.drawRect(obj.getX(), obj.getY(), 
+	                       obj.getCurrentImage().getIconWidth(), 
+	                       obj.getCurrentImage().getIconHeight());
+			}
 		}
 	}
 	
@@ -90,14 +97,15 @@ public class Canvas extends JComponent implements ActionListener, KeyListener {
 	  }
 
 	  public void keyReleased(KeyEvent e) {
-	    if (e.getKeyCode() == KeyEvent.VK_TAB) {
-	      highlighted = highlighted + 1;
-	      if (highlighted == gameObjectList.size()) {
-	        highlighted = 0;
-	      }
-	    }
-	    GameObject s = gameObjectList.get(highlighted);
-	    s.setVelocity(s.getVelocity()+1);
+		  GameObject s = gameObjectList.get(highlighted);
+		  if (e.getKeyCode() == KeyEvent.VK_TAB) {
+			  System.out.print(s.getClass());
+			  s.setUnderControl(false);
+			  highlighted = (highlighted + 1)%gameObjectList.size();
+			  s = gameObjectList.get(highlighted);
+			  System.out.print(s.getClass());
+			  s.setUnderControl(true);
+		  }
 	  }
 
 }
